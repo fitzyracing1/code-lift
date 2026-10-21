@@ -1,0 +1,1 @@
+{ "name": "code-lift", "version": "0.1.0", "description": "Opt-in: lift local code + pseudocode online for indexing", "bin": { "code-lift": "bin/code-lift.js" }, "scripts": { "test": "node --test test/" }, "author": "Joshua Almeida (https://github.com/fitzyracing1)", "license": "MIT", "engines": { "node": ">=18" } }

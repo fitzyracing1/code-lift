@@ -1,0 +1,24 @@
+Would upload (5):
+  + .gitignore
+  + cmd/main.go
+  + scripts/report.py
+  + src/api.ts
+  + src/cart.js
+Blocked by secret scan (2):
+  x .env — .env file (environment secrets)
+  x src/FAKE_SECRET_config.js — OpenAI-style API key (line 3)
+Skipped (2):
+  - assets/logo.png — binary
+  - server.log — gitignored
+[dry-run] would commit 9 files:
+  .gitignore
+  cmd/main.go
+  scripts/report.py
+  src/api.ts
+  src/cart.js
+  .pseudo/cmd/main.go.md
+  .pseudo/scripts/report.py.md
+  .pseudo/src/api.ts.md
+  .pseudo/src/cart.js.md
+Withheld (secrets): .env, src/FAKE_SECRET_config.js
+Indexed 5 files, 13 symbols -> /workspace/code-lift/examples/sample-app/site/index.{json,html}

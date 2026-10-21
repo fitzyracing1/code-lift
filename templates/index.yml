@@ -1,0 +1,36 @@
+# code-lift: rebuild the index on push and publish to GitHub Pages.
+# Copy to .github/workflows/code-lift-index.yml in the repo you own.
+name: code-lift index
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest   # or: [self-hosted, linux]  (see README)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build index (secret scan runs again here)
+        run: npx --yes github:fitzyracing1/code-lift index . --out site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

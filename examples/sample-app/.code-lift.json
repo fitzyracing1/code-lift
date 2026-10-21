@@ -1,0 +1,6 @@
+{
+  "include": ["**/*"],
+  "exclude": ["node_modules/**", ".git/**", ".pseudo/**", "site/**", "docs/private/**"],
+  "maxFileBytes": 512000,
+  "entropyThreshold": 4.5
+}
